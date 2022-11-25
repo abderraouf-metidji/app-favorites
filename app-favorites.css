@@ -1,0 +1,582 @@
+*   {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*----- Page principale -----*/
+
+body {
+    min-height: 80vh;
+    background: #222;
+    font-family: sans-serif;
+}
+
+.index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.container  {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 0;
+    gap: 60px;
+}
+
+.container .box {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background: #2e2e2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .box::before{
+    content: '';
+    position: absolute;
+    inset: -10px 50px;
+    border-top: 4px solid var(--clr);
+    border-bottom: 4px solid var(--clr);
+    z-index: -1;
+    transform: skewY(15deg);
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover::before{
+    transform: skewY(0deg);
+    inset: -10px 40px;
+}
+
+.container .box::after{
+    content: '';
+    position: absolute;
+    inset: 60px -10px;
+    border-left: 4px solid var(--clr);
+    border-right: 4px solid var(--clr);
+    z-index: -1;
+    transform: skew(15deg);
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover::after{
+    transform: skew(0deg);
+    inset: 40px -10px;
+}
+
+.container .box .content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container .box .content .icon{
+    color: var(--clr);
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 0 4px #2e2e2e, 0 0 0 6px var(--clr);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    background: #2e2e2e;
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover .content .icon{
+    background: var(--clr);
+    color: #2e2e2e;
+    box-shadow: 0 0 0 4px #2e2e2e, 0 0 0 300px var(--clr);
+}
+
+.container .box .content .text{
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover .content .text h3{
+    color: #2e2e2e;
+}
+
+.container .box .content .text p{
+    color: #999;
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover .content .text p{
+    color: #2e2e2e;
+}
+
+.container .box .content a{
+    position: relative;
+    background: var(--clr);
+    color: #2e2e2e;
+    padding: 8px 15px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 10px;
+    transition: 0.5s ease-in-out;
+}
+
+.container .box:hover .content a{
+    background: #2e2e2e;
+    color: var(--clr);
+}
+
+#icon-github {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#icon-github a{
+    font-weight: 500;
+    font-size: 1em;
+    color: black;
+    text-decoration: none;
+}
+
+#icon-github > .size-icon-github {
+    width: 50px;
+    height: 50px;
+}
+
+/*----- Page 2 : Reddit -----*/
+
+section {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+header img {
+    width: 100px;
+    height: 100px;
+    padding-bottom: 10px;
+}
+
+.reddit {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 5px;
+    font-family: Verdana;
+    background: rgb(195,87,34);
+    background: linear-gradient(0deg, rgba(195,87,34,1) 0%, rgba(253,145,45,1) 100%); 
+}
+
+.reddit h1 {
+    font-size: 2em;
+    font-weight: 500;
+    color: white;
+    font-style: oblique;
+    padding-top: 25px;
+}
+
+.reddit p {
+    color: black;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reddit-col {
+    flex-basis: 30%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.reddit-col img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    object-fit:cover;
+}
+
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    border-radius: 50px;
+}
+
+.layer:hover {
+    background: rgba(255, 68, 0, 0.411);
+}
+
+.layer h3 {
+    width: 100%;
+    font-weight: 300;
+    color: white;
+    font-size: 2em;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.layer:hover h3 {
+    bottom: 49%;
+    opacity: 1;
+}
+
+.reddit-memes {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
+    font-family: Verdana;
+}
+
+.reddit-memes h1 {
+    font-size: 2em;
+    font-weight: 500;
+    color: white;
+    font-style: oblique;
+    padding-top: 25px;
+}
+
+.reddit-memes-col {
+    flex-basis: 33%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.reddit-memes-col img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    padding: 0 10px 0;
+}
+
+.reddit-dl h1 {
+    font-size: 2em;
+    font-weight: 500;
+    color: white;
+    font-style: oblique;
+    padding-bottom: 25px;
+}
+
+.reddit-btn {
+    font-family: Verdana;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: white;
+    width: 160px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: orangered;
+    border-radius: 50px;
+    border-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.reddit-btn:hover, .reddit-btn:focus, .reddit-btn:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+    
+/*----- Page 3 : Webtoon -----*/
+
+.webtoon > header img {
+    position: absolute;
+    margin-top: -425px;
+    left: 50%;
+    translate:calc(-50%);
+}
+
+.webtoon h1 {
+    padding-top: 125px;
+    font-weight: 500;
+    font-style: oblique;
+}
+
+.webtoon {
+    font-family: sans-serif;
+    display: flex;
+    height: 100vh;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,253,100,1) 100%); }
+
+.center {
+    position: relative;
+    margin-top: 125px;
+    width: 770px;
+    left: -70px;
+    perspective: 1000px;
+}
+
+.center .img-card {
+    position: relative;
+    height: 350px;
+    width: 400px;
+    transform-style: preserve-3d;
+    transition:  transform .5s ease-in;
+}
+
+.img-card img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.img-card img:nth-child(1) {
+    transform: rotateX(-270deg) translateY(-175px);
+    transform-origin: top left;
+}
+
+.img-card img:nth-child(2) {
+    transform: translateZ(175px);
+}
+
+.img-card img:nth-child(3) {
+    transform: rotateX(-90deg) translateY(175px);
+    transform-origin: bottom center;
+}
+
+.img-card img:nth-child(4) {
+    transform: rotateX(-180deg) translateY(350px) translateZ(175px);
+    transform-origin: bottom right;
+}
+
+#tab-1:checked ~ .img-card {
+    transform: rotateX(-90deg);
+}
+
+#tab-2:checked ~ .img-card {
+    transform: rotateX(0deg);
+}
+
+#tab-3:checked ~ .img-card {
+    transform: rotateX(90deg);
+}
+
+#tab-4:checked ~ .img-card {
+    transform: rotateX(180deg);
+}
+
+.sliders {
+    position: absolute;
+    display: block;
+    right: 0;
+    top: -30px;
+}
+
+.sliders label {
+    height: 98px;
+    width: 110px;
+    display: flex;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 6px 0;
+    border: 2px solid #2d4052;
+}
+
+.sliders label:nth-child(1) {
+    margin-top: 0;
+}
+
+label img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+    opacity: .9;
+}
+
+label img:hover,
+#tab-1:checked ~ .sliders label:nth-child(1) img,
+#tab-2:checked ~ .sliders label:nth-child(2) img,
+#tab-3:checked ~ .sliders label:nth-child(3) img,
+#tab-4:checked ~ .sliders label:nth-child(4) img{
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+input {
+    display: none;
+}
+
+.webtoon-btn {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    width: 160px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #23C7B8;
+    border-radius: 50px;
+    border-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.webtoon-btn:hover, .webtoon-btn:focus, .webtoon-btn:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+
+/*----- Page 4 : YouTube -----*/
+
+#body-youtube {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(https://media.tenor.com/_4YgA77ExHEAAAAd/rick-roll.gif);
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: auto;
+    width: 80%;
+}
+
+#logo-youtube {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-youtube > img {
+    width: 125px;
+    height: 125px;
+}
+
+main h1 {
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bolder;
+}
+
+main h2 {
+    font-weight: 500;
+    font-size: 1em;
+    font-style: oblique;
+    color: white;
+    text-align: center;
+}
+
+#youtube-vid {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#youtube-vid iframe {
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    padding: 25px;
+}
+
+#youtube-vid h3 {
+    color: white;
+    font-weight: 500;
+    padding-top: 75px;
+}
+
+#other-example-youtube > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+#other-example-youtube h3 {
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    padding-top: 75px;
+}
+
+#other-example-youtube iframe {
+    border-radius: 25px;
+}
+
+#youtube-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.youtube-btn {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: white;
+    width: 160px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: red;
+    border-radius: 50px;
+    border-color: white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+}
+
+.youtube-btn:hover, .youtube-btn:focus, .youtube-btn:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
